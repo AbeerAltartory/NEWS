@@ -123,7 +123,20 @@ const navigate = useNavigate();
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4 }}
       >
-        <p className="container">{newsItem.content}</p>
+        {/* <p className="container">{newsItem.content}</p> */}
+        <p
+          style={{
+            whiteSpace: "pre-wrap",     // 👈 يحافظ على التنسيق الأصلي
+            direction: "rtl",
+            textAlign: "right",
+            padding: "0 20px",
+            marginBottom: "20px",
+            lineHeight: "1.8",
+            fontSize: "20px"
+          }}
+        >
+          {newsItem.content}
+        </p>
         <p className="text-muted mt-3">
           كاتب الخبر: {newsItem.writer} | التاريخ:{" "}
           {new Date(newsItem.createdAt).toLocaleDateString("ar-EG", {
@@ -187,6 +200,7 @@ const navigate = useNavigate();
               <div className="card-body d-flex flex-column">
                 <h5 className="card-title">{post.title}</h5>
                 <p className="card-text">{post.content?.slice(0, 100)}...</p>
+                
                 <div className="d-flex justify-content-between align-items-center mt-2">
                   <a
                     href={`/details/${post._id}`}

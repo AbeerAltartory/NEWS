@@ -68,7 +68,7 @@ const EditNews = () => {
   };
 
   return (
-    <div className="container mt-5" dir="rtl">
+    <div className="container mt-5"  dir="rtl">
       <h3 className="text-center mb-4">تعديل الخبر</h3>
       {errors.fetch && <div className="alert alert-danger">{errors.fetch}</div>}
       <form onSubmit={handleSubmit}>

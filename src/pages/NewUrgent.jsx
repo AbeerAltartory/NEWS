@@ -221,14 +221,23 @@ function NewUrgent() {
                     />
                   </motion.div>
 
-                  <div className="card-body">
+                  <div className="card-body d-flex flex-column text-end">
                     <h5 className="card-title fw-bold mb-3">{news.title}</h5>
-                    <p className="card-text text-muted mb-3">
+          
+                    <p className="card-text text-muted mb-3" style={{
+            whiteSpace: "pre-wrap",     // 👈 يحافظ على التنسيق الأصلي
+            direction: "rtl",
+            textAlign: "right",
+            padding: "0 20px",
+            marginBottom: "20px",
+            lineHeight: "1.8",
+            fontSize: "20px"
+          }}>
                       {news.content
-                        ? `${news.content.slice(0, 100)}...`
+                        ? `${news.content.slice(0, 80)}...`
                         : "لا يوجد محتوى متاح."}
                     </p>
-                    <div className="d-flex justify-content-between align-items-center">
+                    <div className="d-flex justify-content-between align-items-center mt-auto">
                       <Link
                         to={`/details/${news._id}`}
                         className="btn btn-sm"

@@ -9,7 +9,7 @@ const AddNews = () => {
     userId: '',
     title: '',
     category: '',
-    writer: '',
+    writer: localStorage.getItem("name") || "صحفي",
     image: '',
     content: '',
     region: '',
@@ -75,18 +75,19 @@ const AddNews = () => {
   };
 
   const handleCancel = () => {
-    console.log('Navigating to home');
-    navigate('/');
+    // console.log('Navigating to home');
+    // navigate('/');
+    navigate(-1); // ← يرجع للخلف
   };
 
   return (
     <div dir="rtl" className="container text-right mt-5">
       <div className="text-end mb-4">
-        <h3 className="text-right">مرحباً</h3>
-        <p>{window.localStorage.getItem('fullName') || 'غير متوفر'}</p>
+        <h3 className="text-right">مرحباً {window.localStorage.getItem('name') || 'غير متوفر'}:</h3>
+        {/* <h3>{window.localStorage.getItem('name') || 'غير متوفر'}</h3> */}
       </div>
 
-      <div className="card shadow-sm p-4 mb-5">
+      <div className="card shadow-sm p-4 mb-5" style={{border:'4px solid  #0d9488'}}>
         <h4 className="mb-4 text-center">نموذج إضافة خبر</h4>
         {errors.submit && (
           <div className="alert alert-danger text-center">{errors.submit}</div>
@@ -151,13 +152,21 @@ const AddNews = () => {
           <div className="mb-3">
             <label className="form-label">اسم الكاتب *</label>
             <input
+             type="text"
+             name="writer"
+             className={`form-control ${errors.writer ? 'is-invalid' : ''}`}
+             value={formData.writer}
+             readOnly
+            />
+
+            {/* <input
               type="text"
               name="writer"
               className={`form-control ${errors.writer ? 'is-invalid' : ''}`}
               value={formData.writer}
               onChange={handleChange}
             />
-            {errors.writer && <div className="invalid-feedback">{errors.writer}</div>}
+            {errors.writer && <div className="invalid-feedback">{errors.writer}</div>} */}
           </div>
 
           <div className="mb-3">

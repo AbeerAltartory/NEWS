@@ -53,6 +53,9 @@ const JournalistLogin = () => {
         window.localStorage.setItem("id", response.data.journalist.id);
         window.localStorage.setItem("name", response.data.journalist.fullName);
         window.localStorage.setItem("isLoggedIn", "true");
+        // window.localStorage.setItem("region", response.data.journalist.region);
+        // window.localStorage.setItem("category", response.data.journalist.category);
+
       }
     } catch (error) {
       console.error("Error:", error);

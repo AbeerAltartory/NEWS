@@ -132,7 +132,7 @@ function NewHealth() {
       {/* Main content */}
       <div className="container py-5">
         <motion.div className="row g-4">
-          <motion.div className="col-12 mb-4">
+          {/* <motion.div className="col-12 mb-4">
             <div className="card border-0 shadow-sm p-3">
               <div className="d-flex justify-content-between align-items-center mb-3">
                 <h5 className="m-0">تصفية أخبار الصحة</h5>
@@ -140,8 +140,8 @@ function NewHealth() {
               </div>
               {/* Search input */}
 
-            </div>
-          </motion.div>
+            {/* </div> */}
+          {/* </motion.div> */} 
 
           {loading ? (
             <motion.div className="col-12 text-center">
@@ -172,14 +172,16 @@ function NewHealth() {
                     alt={post.title || "صورة الخبر"}
                     style={{ height: "200px", objectFit: "cover" }}
                   />
-                  <div className="card-body d-flex flex-column">
+                  <div className="card-body d-flex flex-column text-end">
                     <h5 className="card-title">{post.title}</h5>
-                    <p className="text-muted mb-1">بقلم: {post.writer}</p>
-                    <p className="card-text">{post.content?.slice(0, 100)}...</p>
+                    {/* <p className="text-muted mb-1">بقلم: {post.writer}</p> */}
+                    <p   className="card-text flex-grow-1"
+                    style={{ whiteSpace: "pre-wrap", direction: "rtl", lineHeight: "1.7" }}
+                    >{post.content?.slice(0, 80)}...</p>
 
                   
 
-                    <div className="d-flex justify-content-between align-items-center mt-2">
+                    <div className="d-flex justify-content-between align-items-center mt-auto">
                       <Link
                         to={`/details/${post._id}`}
                         className="btn btn-sm"

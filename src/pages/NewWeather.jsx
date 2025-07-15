@@ -223,12 +223,16 @@ function NewWeather() {
                     />
                   </motion.div>
 
-                  <div className="card-body">
+                  <div className="card-body d-flex flex-column text-end">
                     <h5 className="card-title fw-bold mb-3">{news.title}</h5>
-                    <p className="card-text text-muted mb-3">
-                      {news.content.slice(0, 100)}...
-                    </p>
-                    <div className="d-flex justify-content-between align-items-center">
+                    <p
+                    className="card-text flex-grow-1"
+                    style={{ whiteSpace: "pre-wrap", direction: "rtl", lineHeight: "1.7" }}
+                    >
+                  {news.content.slice(0, 80)}...
+                  </p>
+
+                    <div className="d-flex justify-content-between align-items-center mt-auto">
                       <Link
                         to={`/details/${news._id}`}
                         className="btn btn-sm"

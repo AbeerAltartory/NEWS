@@ -227,11 +227,8 @@ function NewUrgent() {
                     <p className="card-text text-muted mb-3" style={{
             whiteSpace: "pre-wrap",     // 👈 يحافظ على التنسيق الأصلي
             direction: "rtl",
-            textAlign: "right",
-            padding: "0 20px",
-            marginBottom: "20px",
-            lineHeight: "1.8",
-            fontSize: "20px"
+            textAlign: "1.7",
+            
           }}>
                       {news.content
                         ? `${news.content.slice(0, 80)}...`

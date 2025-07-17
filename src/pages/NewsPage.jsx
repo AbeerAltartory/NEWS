@@ -129,7 +129,12 @@ function NewsPage() {
           ) : (
             sportsNews.slice(0, 15).map((news) => (
               <div key={news._id} className="col-md-6 col-lg-4">
-                <div className="card h-100 d-flex flex-column border-0 shadow-sm overflow-hidden">
+                <motion.div className="card h-100 border-0 shadow-sm overflow-hidden"
+                  whileHover={{
+                    y: -10,
+                    boxShadow: "0 15px 30px rgba(0,0,0,0.12)",
+                  }}>
+                  
                   <div
                     className="position-absolute top-0 end-0 px-3 py-1 text-white"
                     style={{
@@ -140,13 +145,18 @@ function NewsPage() {
                   >
                     <small>{news.category}</small>
                   </div>
-
+                  <motion.div
+                    className="card-img-top overflow-hidden"
+                    style={{ height: "200px" }}
+                    whileHover={{ scale: 1.05 }}
+                  >
                   <img
                     src={news.image}
                     alt={news.title}
                     className="img-fluid w-100"
                     style={{ height: "200px", objectFit: "cover" }}
                   />
+                  </motion.div>
 
                   <div className="card-body d-flex flex-column text-end">
                     <h5 className="card-title">{news.title}</h5>
@@ -178,7 +188,7 @@ function NewsPage() {
                       <CopyLinkButton postId={news._id} />
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             ))
           )}
